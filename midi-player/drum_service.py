@@ -1,4 +1,6 @@
 from audio_sevice import AudioService
+import web_service
+
 import logging
 
 class DrumService :
