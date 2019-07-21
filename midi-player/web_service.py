@@ -1,18 +1,30 @@
 from flask import Flask
 from flask_sockets import Sockets
 
+from audio_sevice import AudioService,Tune
+
 app = Flask(__name__)
 sockets = Sockets(app)
 
+audio = AudioService()
 
 @sockets.route('/accelerometer')
 def echo_socket(ws):
     f = open("accelerometer.txt", "a")
     while True:
         message = ws.receive()
-        print(message)
+        # print(message)
         ws.send(message)
         print(message, file=f)
+        message = message.split(",")
+
+        if round(float(message[0]),2) > 15 :
+            print(round(float(message[0]),2),
+                  round(float(message[1]),2),
+                    round(float(message[2]),2))
+
+            audio.run_audio(Tune.HiHatOpen)
+
     f.close()
 
 
@@ -23,7 +35,7 @@ def echo_socket(ws):
         message = ws.receive()
         print(message)
         ws.send(message)
-        print(message, file=f)
+        # print(message, file=f)
     f.close()
 
 
@@ -34,7 +46,7 @@ def echo_socket(ws):
         message = ws.receive()
         print(message)
         ws.send(message)
-        print(message, file=f)
+        # print(message, file=f)
     f.close()
 
 
@@ -45,7 +57,7 @@ def echo_socket(ws):
         message = ws.receive()
         print(message)
         ws.send(message)
-        print(message, file=f)
+        # print(message, file=f)
     f.close()
 
 
@@ -54,9 +66,12 @@ def echo_socket(ws):
     f = open("stepcounter.txt", "a")
     while True:
         message = ws.receive()
-        print(message)
+        # print(message)
         ws.send(message)
-        print(message, file=f)
+
+        message = message.split(",")
+        float(message[0])
+        # print(message, file=f)
     f.close()
 
 
@@ -67,7 +82,7 @@ def echo_socket(ws):
         message = ws.receive()
         print(message)
         ws.send(message)
-        print(message, file=f)
+        # print(message, file=f)
     f.close()
 
 
@@ -78,7 +93,7 @@ def echo_socket(ws):
         message = ws.receive()
         print(message)
         ws.send(message)
-        print(message, file=f)
+        # print(message, file=f)
     f.close()
 
 
@@ -100,7 +115,7 @@ def echo_socket(ws):
         message = ws.receive()
         print(message)
         ws.send(message)
-        print(message, file=f)
+        # print(message, file=f)
     f.close()
 
 

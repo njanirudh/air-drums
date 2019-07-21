@@ -1,5 +1,6 @@
 from audio_player import WavPlayer
 from enum import Enum
+import time
 
 class Tune(Enum):
     HiHatOpen =1
@@ -72,6 +73,13 @@ class AudioService:
 
 
 
+if __name__ == "__main__":
+    audio = AudioService()
+    audio.run_audio(Tune.HiHatOpen)
+    time.sleep(0.2)
+    audio.run_audio(Tune.HiHatOpen)
+    time.sleep(0.2)
+    audio.run_audio(Tune.HiHatOpen)
 
 
 

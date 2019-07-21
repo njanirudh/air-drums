@@ -26,5 +26,3 @@ if __name__ == "__main__":
     closed_hi_hat.start()
 
     closed_hi_hat.play()
-    time.sleep(5)
-    closed_hi_hat.play()
