@@ -16,7 +16,7 @@ class Tune(Enum):
 class AudioService:
 
     def __init__(self):
-        self.HiHatOpenPlayer  = WavPlayer("/home/anirudh/Music/MiDi/Closed-Hi-Hat-1.wav")
+        self.HiHatOpenPlayer  = WavPlayer("/home/anirudh/Music/MiDi/Ensoniq-SQ-1-Ride-Cymbal.wav")
         self.HiHatOpenPlayer.start()
 
         self.HiHatClosePlayer = WavPlayer("/home/anirudh/Music/MiDi/Closed-Hi-Hat-1.wav")
